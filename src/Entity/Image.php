@@ -28,7 +28,7 @@ class Image
     private $caption;
 
     /**
-     * @ORM\ManyToOne(targetEntity=cars::class, inversedBy="caption")
+     * @ORM\ManyToOne(targetEntity=Cars::class, inversedBy="images")
      * @ORM\JoinColumn(nullable=false)
      */
     private $cars;
