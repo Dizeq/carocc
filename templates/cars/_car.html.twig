@@ -1,0 +1,20 @@
+{% set url = path('cars_show', {'slug': cars.slug}) %}
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        {{ cars.marque }} {{ cars.modele }}, <strong>{{cars.prix}} €</strong>
+                    </div>
+                    <a href="{{url}}">
+                        <img src="{{ cars.coverImage }}" alt="image de {{ ad.description }}" class="starsimg">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            {{ cars.title }}
+                        </h4>
+                        <p class="card-text">
+                            {{ cars.option }}
+                        </p>
+                        <a href="{{url}}" class="btn btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>

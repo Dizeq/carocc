@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+{% block title %}Homepage{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="jumbotron mt-3">
+            <h1 class="display-3">CarOcc - Sur les routes en toute simplicité</h1>
+            <p class="lead">Nous sommes un garage indépendant des grandes marques qui vous propose des véhicules d'occasions à bon prix </p>
+            <hr class="my-4">
+            <p>Pour voir notre séléction de voitures? C'est part ici ! </p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{{ path('cars_index') }}" role="button">Vers notre showroom</a>
+            </p>
+        </div>
+
+        <h1 class='mt-3 mb-4'>Notre séléction de voitures</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        3 chambres, <strong>49€ / nuit</strong>
+                    </div>
+                    <img src="http://placehold.it/1000x400" alt="Image de l'appartement" class='starsimg'>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Super appartement! 
+                        </h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi molestias distinctio expedita quas in autem sequi vel quasi, recusandae ex.
+                        </p>
+                        <a href="#" class="btn btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        3 chambres, <strong>49€ / nuit</strong>
+                    </div>
+                    <img src="http://placehold.it/1000x400" alt="Image de l'appartement" class='starsimg'>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Super appartement! 
+                        </h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi molestias distinctio expedita quas in autem sequi vel quasi, recusandae ex.
+                        </p>
+                        <a href="#" class="btn btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-light mb-3">
+                    <div class="card-header text-center">
+                        3 chambres, <strong>49€ / nuit</strong>
+                    </div>
+                    <img src="http://placehold.it/1000x400" alt="Image de l'appartement" class='starsimg'>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            Super appartement! 
+                        </h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi molestias distinctio expedita quas in autem sequi vel quasi, recusandae ex.
+                        </p>
+                        <a href="#" class="btn btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class='mt-3 mb-4'>Nos propriétaires stars </h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card border-secondary mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">Bruce Wayne</h4>
+                        <hr>
+                        <div class="card-text">
+                            <img src="http://placehold.it/64x64" alt="Avatar de Bruce Wayne" class="float-left mr-3">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, sit!</p>
+                            <a href="#" class="btn btn-success float-right">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="col-md-6">
+                <div class="card border-secondary mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">Bruce Wayne</h4>
+                        <hr>
+                        <div class="card-text">
+                            <img src="http://placehold.it/64x64" alt="Avatar de Bruce Wayne" class="float-left mr-3">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, sit!</p>
+                            <a href="#" class="btn btn-success float-right">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

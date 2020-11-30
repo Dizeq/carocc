@@ -1,4 +1,7 @@
 {
+    "cocur/slugify": {
+        "version": "v4.0.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -116,6 +119,9 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.10.0"
+    },
+    "pelmered/fake-car": {
+        "version": "1.5"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
