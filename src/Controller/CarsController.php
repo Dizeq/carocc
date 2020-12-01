@@ -31,10 +31,10 @@ class CarsController extends AbstractController
      * @param [string] $id
      * @return Response
      */
-    public function show($id)
+    public function show(Cars $cars)
     {
-       $repo = $this->getDoctrine()->getRepository(Cars::class);
-       $cars = $repo->find($id);
+      // $repo = $this->getDoctrine()->getRepository(Cars::class);
+       //$cars = $repo->find($cars);
         //dump($cars);
 
         return $this->render('cars/show.html.twig',[
