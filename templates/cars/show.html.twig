@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Annonce : {{ cars.modele }} {{ cars.marque }}{% endblock %}
+{% block title %}Annonce : {{ cars.modele }}  {% endblock %}
 
 {% block body %}
 <div class="annonce-title" style="background-image: url({{cars.coverImage}});">
@@ -14,7 +14,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mb-3">
-            {{cars.content | raw | nl2br }}
+            {{cars.options | raw | nl2br }}
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for image in cars.images %}

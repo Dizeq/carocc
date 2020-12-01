@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nore showroom{% endblock %}
+{% block title %}Notre showroom{% endblock %}
 
 {% block body %}
 <div class="container">
         <h1 class="my-3">Notre showroom</h1>
         <div class="row">
-        {% for cars in cars %}
+        {% for cars  in carss %}
             {% include 'cars/_car.html.twig' %}
         {% endfor %}
         </div>

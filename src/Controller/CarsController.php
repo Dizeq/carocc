@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Cars;
 use App\Repository\CarsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Controller\CarsController;
 
 class CarsController extends AbstractController
 {
@@ -15,27 +17,28 @@ class CarsController extends AbstractController
      */
     public function index(CarsRepository $repo): Response
     {
-        $cars = $repo->findAll();
+        $carss = $repo->findAll();
+        dump($repo);
         return $this->render('cars/index.html.twig', [
-            'cars' => '$cars',
+            'carss' => $carss,
         ]);
     }
 
     /**
      * Permet d'afficher une seule annonce
-     * @Route("/cars/{slug}", name="cars_show")
+     * @Route("/cars/{id}", name="cars_show")
      *
-     * @param [string] $slug
+     * @param [string] $id
      * @return Response
      */
-    public function show(Cars $car)
+    public function show($id)
     {
-        $repo = $this->getDoctrine()->getRepository(Cars::class);
-        $car = $repo->findOneBySlug($slug);
-        //dump($ad);
+       $repo = $this->getDoctrine()->getRepository(Cars::class);
+       $cars = $repo->find($id);
+        //dump($cars);
 
         return $this->render('cars/show.html.twig',[
-            'cars' => $car
+            'cars' => $cars
         ]);
 
     }

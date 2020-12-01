@@ -29,7 +29,7 @@ class AppFixtures extends Fixture
         $mecirculation = $faker->date($format = 'm-Y', $max = 'now');
         $transmission = $faker->vehicleGearBoxType();
         $description = $faker->sentence();
-        $options = $faker->paragraph();
+        $options ='<p>'.join('</p><p>',$faker->sentences(8)).'</p>';
         //$slug = $slugify->slugify($description);
         
 
