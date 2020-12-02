@@ -21,7 +21,6 @@ class CarsController extends AbstractController
     public function index(CarsRepository $repo): Response
     {
         $carss = $repo->findAll();
-        dump($repo);
         return $this->render('cars/index.html.twig', [
             'carss' => $carss,
         ]);
@@ -46,6 +45,14 @@ class CarsController extends AbstractController
             $manager->persist($cars);
             $manager->flush();
             
+            $this->addFlash(
+                'success',
+                "L'annonce <strong>{$cars->getModele()}</strong> a bien été enregistrée"
+            );
+
+            return $this->redirectToRoute('cars_show',[
+                'id' => $cars->getId()
+            ]);
 
            
 
@@ -59,7 +66,7 @@ class CarsController extends AbstractController
 
 
     /**
-     * Permet d'afficher une seule annonce
+     
      * @Route("/cars/{id}", name="cars_show")
      *
      * @param [string] $id

@@ -26,66 +26,79 @@ class Cars
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=255, minMessage="La marque doit faire plus de 2 caractères", maxMessage="La marque ne doit pas faire plus de 255 caractères")
      */
     private $marque;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=255, minMessage="Le modèle doit faire plus de 2 caractères", maxMessage="Le modèle ne peut pas faire plus de 255 caractères")
      */
     private $modele;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1, max=255, minMessage="Le kilométrages ne peut pas être vide", maxMessage="Le kilométrage ne peut pas faire plus de 255 caractères")
      */
     private $kilometre;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=4, max=255, minMessage="Le prix doit faire minimum 4 caractères", maxMessage="Le Prix ne peut pas faire plus de 255 caractères")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1, max=2, minMessage="Le nombre de proprio ne peut pas être vide", maxMessage="Le nombre de proprio ne peut pas être supérieur à 10")
      */
     private $proprietaire;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=255, minMessage="La cylindrée doit faire 3 caractères minimum", maxMessage="La cylindrée ne peut pas faire plus de 255 caractères")
      */
     private $cylindree;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=255, minMessage="La puissance ne peut pas être inférieure à 10", maxMessage="La puissance ne peut pas faire plus de 255 caractères")
      */
     private $puissance;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=255, minMessage="Le carburant doit faire plus de 2 caractères", maxMessage="Le carburant ne peut pas faire plus de 255 caractères")
      */
     private $carburant;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $mecirculation;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1, max=255, minMessage="La transmission ne peut pas être vide", maxMessage="La transmission ne peut pas faire plus de 255 caractères")
      */
     private $transmission;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=10, max=255, minMessage="La description ne peut pas être vide", maxMessage="La description ne peut pas faire plus de 255 caractères")
      */
     private $description;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min=10, max=255, minMessage="Les options ne peuvent pas être vide", maxMessage="Les options ne peut pas faire plus de 255 caractères")
      */
     private $options;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $slug;
 
