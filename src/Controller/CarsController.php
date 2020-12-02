@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Cars;
+use App\Entity\Image;
+use App\Form\CarType;
+use App\Controller\CarsController;
 use App\Repository\CarsRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Controller\CarsController;
 
 class CarsController extends AbstractController
 {
@@ -23,6 +26,32 @@ class CarsController extends AbstractController
             'carss' => $carss,
         ]);
     }
+    /**
+     * Permet de créer une annonce
+     * @Route("/cars/new", name="cars_create")
+     * 
+     *
+     * @return Response
+     */
+    public function create(EntityManagerInterface $manager, Request $request)
+    {
+        $cars = new Cars();
+             
+
+        $form = $this->createForm(CarType::class, $cars);
+
+        $form->handleRequest($request);
+
+        dump($cars);
+
+        
+
+
+        return $this->render('cars/new.html.twig',[
+            'myForm' => $form->createView()
+        ]);
+    }
+
 
     /**
      * Permet d'afficher une seule annonce
@@ -42,4 +71,5 @@ class CarsController extends AbstractController
         ]);
 
     }
+    
 }

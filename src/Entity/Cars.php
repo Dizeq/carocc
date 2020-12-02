@@ -95,7 +95,7 @@ class Cars
     private $cover_image;
 
     /**
-     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="url")
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="cars")
      */
     private $images;
 

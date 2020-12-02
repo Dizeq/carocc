@@ -2,17 +2,17 @@
             <div class="col-md-4">
                 <div class="card bg-light mb-3">
                     <div class="card-header text-center">
-                        {{ cars.marque }}, <strong>{{cars.prix}} €</strong>
+                        {{ cars.marque }} {{ cars.modele }} 
                     </div>
                     <a href="{{ url }}">
                         <img src="{{ cars.coverImage }}" alt="image de {{ cars.options }}" class="starsimg">
                     </a>
                     <div class="card-body">
-                        <h4 class="card-title">
-                            {{ cars.description }}
-                        </h4>
+                        
                         <p class="card-text">
-                            {{ cars.options | raw}}
+                            {{ cars.description | raw}} 
+                            <br>
+                            <strong>{{cars.prix}} €</strong>
                         </p>
                         <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
                     </div>
