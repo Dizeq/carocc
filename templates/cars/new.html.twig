@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création d'une annonce{% endblock %}
+{% block title %}Création d'une nouvelle voiture à vendre{% endblock %}
 
 {% form_theme myForm _self %}
 
 {% block body %}
     <div class="container">
-        <h1>Création d'une nouvelle annonce</h1>
-        {{ form(myForm) }} 
+        <h1>Création d'une nouvelle voiture à vendre</h1>
+           {{ form_start(myForm) }}
 
-        <button type="submit" class="btn btn-primary">Création d'une annonce</button>
-
+            {{form_widget(myForm)}}
+                <button type="submit" class="btn btn-primary">Ajouter la voiture</button>
+          {{ form_end(myForm) }}
             
 
     </div>

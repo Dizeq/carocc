@@ -27,24 +27,29 @@ class CarsController extends AbstractController
         ]);
     }
     /**
-     * Permet de créer une annonce
-     * @Route("/cars/new", name="cars_create")
      * 
-     *
+     * @Route("/cars/new", name="cars_create")
      * @return Response
      */
     public function create(EntityManagerInterface $manager, Request $request)
     {
         $cars = new Cars();
-             
-
+   
         $form = $this->createForm(CarType::class, $cars);
 
         $form->handleRequest($request);
 
-        dump($cars);
+        if($form->isSubmitted() && $form->isValid()){
 
-        
+            
+
+            $manager->persist($cars);
+            $manager->flush();
+            
+
+           
+
+        }
 
 
         return $this->render('cars/new.html.twig',[

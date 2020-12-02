@@ -41,7 +41,12 @@ class CarType extends ApplicationType
                     'placeholder'=>'Carburant de la voiture'
                 ]
             ])
-            ->add('mecirculation')
+            ->add('mecirculation', TextType::class, [
+                'label' => "Date de mise en circulation",
+                'attr' => [
+                    'placeholder'=>'Mise en circulation'
+                ]
+            ])
             ->add('transmission', TextType::class, [
                 'label' => "Transmission",
                 'attr' => [
