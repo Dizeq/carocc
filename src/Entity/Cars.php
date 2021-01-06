@@ -109,6 +109,7 @@ class Cars
 
     /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="cars")
+     * @Assert\Valid()
      */
     private $images;
 

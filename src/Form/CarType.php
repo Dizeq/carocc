@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Cars;
+use App\Form\ImageType;
 use App\Form\ApplicationType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -12,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class CarType extends ApplicationType
 {
@@ -59,7 +61,17 @@ class CarType extends ApplicationType
                 'required' => false
             ]))
             ->add('cover_image', UrlType::class, $this->getConfiguration('URL de l\'image','Donnez l\'adresse de votre image'))
-        ;
+            ->add(
+                'images',
+                CollectionType::class,
+                [
+                    'entry_type' => ImageType::class,
+                    'allow_add' => true, 
+                    'allow_delete' => true
+                ]
+            )
+            ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

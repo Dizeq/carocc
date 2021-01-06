@@ -7,8 +7,8 @@
 {% block body %}
     <div class="container">
         <h1>Création d'une nouvelle voiture à vendre</h1>
-           {{ form_start(myForm) }}
-
+           
+    {{ form_start(myForm) }}
             {{form_widget(myForm)}}
                 <button type="submit" class="btn btn-primary">Ajouter la voiture</button>
           {{ form_end(myForm) }}
@@ -18,10 +18,88 @@
 {% endblock %}
 
 
-{% block form_row %}
+{% block _car_images_widget %}
+    {# Définition du champ car_image, la variable form correspond au champ car_image #}
+    <p>Ajouter des images pour la galerie photo de la voiture</p>
+    {{ form_widget(form) }}
+    <input type="hidden" id="widgets-counter" value="0">
     <div class="form-group">
-        {{form_label(form)}}
-        {{form_widget(form)}}
+        <button type="button" id="add-image" class="btn btn-primary">Ajouter une image</button>
     </div>
+{% endblock %}
+
+{% block _car_images_entry_row %}
+    {# entry précise le entry_type de notre CarType au niveau de la collection - donc chaque formulaire ImageType #}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _car_images_entry_widget %}
+     {# entry précise le entry_type de notre AnnonceType au niveau de la collection - donc chaque formulaire ImageType #}
+     <div class="form-group" id="block_{{id}}">{# id est une variable du block - block_car_images_0 #}
+        <div class="row">
+            <div class="col-10">
+                <div class="row">
+                    <div class="col">
+                        {{form_widget(form.url)}}
+                        {{form_errors(form.url)}}
+                    </div>
+                    <div class="col">
+                         {{form_widget(form.caption)}}
+                        {{form_errors(form.caption)}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-danger" data-action="delete" data-target='#block_{{id}}'>X</button>
+            </div>
+        </div>
+     
+     </div> 
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        const addImage = document.querySelector("#add-image")
+
+        addImage.addEventListener('click',()=>{
+            
+            const widgetCounter = document.querySelector("#widgets-counter")
+            const index = +widgetCounter.value 
+            console.log(index)
+
+            const annonceImages = document.querySelector("#car_images")
+            const prototype = annonceImages.dataset.prototype.replace(/__name__/g, index) 
+            annonceImages.insertAdjacentHTML('beforeend', prototype)
+            widgetCounter.value = index+1
+
+            handleDeleteButtons() 
+
+        })
+
+        const updateCounter = () => {
+            const count = document.querySelectorAll('#car_images div.form-group').length
+            document.querySelector('#widgets-counter').value = count
+        }
+
+        const handleDeleteButtons = () => {
+            var deletes = document.querySelectorAll("button[data-action='delete']")
+           
+            deletes.forEach(button => {
+                button.addEventListener('click', ()=>{
+                   
+                    const target = button.dataset.target 
+                    const elementTarget = document.querySelector(target)
+                    
+                    if(elementTarget){
+                        elementTarget.remove() 
+                    }
+                })
+            })
+        }
+
+        updateCounter()
+        handleDeleteButtons()
+
+    </script>
 {% endblock %}
 
